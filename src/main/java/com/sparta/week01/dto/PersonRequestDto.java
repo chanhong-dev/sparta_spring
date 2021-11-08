@@ -17,4 +17,7 @@ public class PersonRequestDto {
         this.name = name;
         this.age = age;
     }
+    public PersonRequestDto(String name){
+        this.name = name;
+    }
 }

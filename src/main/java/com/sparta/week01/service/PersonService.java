@@ -26,7 +26,12 @@ public class PersonService {
         personRepository.deleteByName(name);
     }
 
-//    public void updatePerson(String name, PersonRequestDto personRequestDto){
-//        return personRepository.update(name, personRequestDto);
-//    }
+    @Transactional
+    public Long update(Long id, PersonRequestDto requestDto){
+        Person person = personRepository.findById(id).orElseThrow(
+                ()-> new NullPointerException("해당 아이디가 존재하지 않습니다.")
+        );
+        person.update(requestDto);
+        return person.getId();
+    }
 }

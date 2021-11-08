@@ -35,10 +35,8 @@ public class PersonController {
         return name;
     }
 
-//    @PutMapping("/api/persons/{name}")
-//    public String updatePerson(@PathVariable String name, @RequestBody PersonRequestDto personRequestDto){
-//        personService.updatePerson(name, personRequestDto);
-//
-//        return name;
-//    }
+    @PutMapping("/api/persons/{id}")
+    public Long updatePerson(@PathVariable Long id, @RequestBody PersonRequestDto requestDto) {
+        return personService.update(id, requestDto);
+    }
 }
